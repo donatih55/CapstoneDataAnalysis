@@ -1,5 +1,6 @@
 <?php
-include "DatabaseInfo.php"
+
+include "DatabaseInfo.php";
 
 function queryMaker() {
 
@@ -38,7 +39,6 @@ function queryMaker() {
 				$statement++;
 			}
 		}
-
 	}
 	//checks for group
 	if (!empty($group)){$SQL .= " GROUP BY " . $group ; }
@@ -47,26 +47,9 @@ function queryMaker() {
 	//include limit if there is any
 	if (!empty($limit)){ $SQL .= " limit ". $limit;}
 	$SQL .= ";";
+    //echo $SQL; //ue this to test the API on it's own
 	return $SQL;
 }
-
-function makeConn(){
-	//start connection to database (comes from DatabaseInfo.php now)
-	/*$servername = "";
-	$username = "";
-	$password = "";
-	$dbname = "";""*/
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connectioncode, main, condition, group, order, limit
-	if (!$conn) {
-		echo "Bad Connection";
-		exit();
-	}
-	return $conn;
-}
-
 
 function jsonMaker($q){
 	$conn = makeConn();
@@ -106,7 +89,6 @@ function showColumns(){
 
 	$conn = makeConn();
 	$sql = "show columns from " . $_GET["table"] . " ;";
-	$sql = "show columns from Admissions;";
 	$result = "";
 	$result = $conn->query($sql);
 	$ret = array();
