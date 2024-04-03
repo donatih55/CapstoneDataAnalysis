@@ -62,7 +62,7 @@ function jsonMaker($q){
 	if ($_GET["code"] == 2){array_push($header, "count");}
 	$json = array($header);
 	$flag = false;
-	if (strpos($_GET["main"],"state")!== false){ $flag = true;}
+	//if (strpos($_GET["main"],"state")!== false){ $flag = true;} //no longer required per google's API change
 
 	//input stuff on the table
 	if ($result->num_rows > 0) {
@@ -72,7 +72,7 @@ function jsonMaker($q){
 
 			foreach ($row as $r){
 				if (is_numeric($r) && ($row[0] != $r)){array_push($ar, intval($r));}
-				elseif($flag) {array_push($ar, 'US-'.$r);}
+				//elseif($flag) {array_push($ar, 'US-'.$r);} //no longer required per google's API change
 				else {array_push($ar, $r);}
 			}
 		array_push($json, $ar);

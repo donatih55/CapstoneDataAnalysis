@@ -75,6 +75,7 @@ function drawTable () {
 	var chart = new google.visualization.Table(document.getElementById('ChartSpace'));
         chart.draw(data, {showRowNumber: true, width: '100%', height: '100%'});	
 }
+//bar
 function drawChartBar(){
 	var chart = new google.visualization.ColumnChart(document.getElementById('ChartSpace'));
 	chart.draw(data, {'isStacked': true, 'legend': 'bottom', width: '100%', height: '100%'});
@@ -90,7 +91,7 @@ function populateSelect (select, ar, val){
 window.onload = function (e) {
 	//loadApi();
 	//makeTable();
- google.charts.load('current', {'packages':['corechart','geomap','table']});
+ google.charts.load('current', {'packages':['corechart','geochart','table']});
 	makeWizard();
 }
 

@@ -207,7 +207,6 @@ function submit(){
 //function executed at the beggining
 function makeWizard(){
 	$("input .conditions").remove();
-    console.log("test");
 	$("#table").change(function() {
   		if ($(this).val() != ""){
 			//add value to columns
@@ -265,7 +264,10 @@ function changeCondition(cond){
     	float: left;
 }
 #Query3{
-	width: 99%;
+	width: 99.5%;
+}
+#Query5, #Query6 {
+    width: 49.7%;
 }
 </style>
 <?php include "footer.php"?>
